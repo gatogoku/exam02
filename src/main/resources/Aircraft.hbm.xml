@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+
+	<class name="Aircraft" table="AIRCRAFT">
+	
+		
+				
+			<id name="id" type="long">
+			<column name="ID" />
+			<generator class="identity" />
+			</id>
+		
+		<property name="autonomy" column="AUTONOMY" />
+		<property name="model" column="MODEL" />
+		     
+        
+        <one-to-one name="pilot" class="Pilot"
+			cascade="save-update"></one-to-one>
+		
+	</class>
+
+</hibernate-mapping>
